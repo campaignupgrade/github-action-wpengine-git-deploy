@@ -26,7 +26,7 @@ jobs:
     - name: Build Stuff
       run: |
         lando start &&
-        cd wp-content/themes/iiba && lando yarn build:production
+        cd wp-content/themes/mythemename && lando yarn build:production
 
     - name: Set deployment gitignores then Commit
       run: |
@@ -42,14 +42,14 @@ jobs:
       if: github.ref == 'refs/heads/production'
       uses: campaignupgrade/github-action-wpengine-git-deploy@0.1.2
       env:
-        WPENGINE_ENVIRONMENT_NAME: mycoolinstall
+        WPENGINE_SITE_NAME: myinstallname
         LOCAL_BRANCH: 'production'
 
     - name: Deploy to WPEngine Staging Site
       if: github.ref == 'refs/heads/staging'  # if pushed to this branch
       uses: campaignupgrade/github-action-wpengine-git-deploy@master
       env:
-        WPENGINE_SITE_NAME: 'iiba3staging' # deploy to this WPE site
+        WPENGINE_SITE_NAME: 'mystagingname' # deploy to this WPE site
         LOCAL_BRANCH: 'staging' # deploy this branch's code
 ```
 
