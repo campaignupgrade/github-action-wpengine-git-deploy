@@ -30,7 +30,7 @@ jobs:
 
     - name: Set deployment gitignores then Commit
       run: |
-        rm wp-content/themes/iiba/.gitignore
+        rm wp-content/themes/mythemename/.gitignore
         rm wp-content/uploads/.htaccess
         cp dev/deployment/gitignore .gitignore &&
         timestamp=$(date "+%Y.%m.%d-%H.%M.%S") &&
